@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Search - ACAM.ai</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="search-body">
+    <!-- Header -->
+    <header class="app-header">
+        <div class="header-container">
+            <div class="logo">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="32" height="32" rx="8" fill="url(#gradient)"/>
+                    <path d="M16 8L20 16H12L16 8Z" fill="white"/>
+                    <rect x="10" y="18" width="12" height="6" fill="white"/>
+                    <defs>
+                        <linearGradient id="gradient" x1="0" y1="0" x2="32" y2="32">
+                            <stop offset="0%" stop-color="#667eea"/>
+                            <stop offset="100%" stop-color="#764ba2"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <span class="logo-text">ACAM.ai</span>
+            </div>
+            <div class="header-actions">
+                <button class="btn-icon" title="Notifications">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M18 8C18 6.4087 17.3679 4.88258 16.2426 3.75736C15.1174 2.63214 13.5913 2 12 2C10.4087 2 8.88258 2.63214 7.75736 3.75736C6.63214 4.88258 6 6.4087 6 8C6 15 3 17 3 17H21C21 17 18 15 18 8Z" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                    <span class="notification-badge">2</span>
+                </button>
+                <div class="user-menu">
+                    <div class="user-avatar">AD</div>
+                    <span class="user-name">Admin</span>
+                </div>
+                <button class="btn-secondary" onclick="logout()">Logout</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="search-main">
+        <div class="search-container">
+            <!-- Search Hero -->
+            <div class="search-hero">
+                <h1>Find Your Property</h1>
+                <p>Search by address or property ID to access building health records</p>
+            </div>
+
+            <!-- Search Box -->
+            <div class="search-box-container">
+                <form id="searchForm" class="search-form">
+                    <div class="search-input-group">
+                        <svg class="search-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.134 17 3 13.866 3 10C3 6.134 6.134 3 10 3C13.866 3 17 6.134 17 10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        <input type="text" id="searchInput" placeholder="Enter property address or ID..." class="search-input">
+                        <button type="submit" class="btn-primary search-button">Search</button>
+                    </div>
+                </form>
+
+                <div class="search-filters">
+                    <button class="filter-chip active" data-filter="all">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                            <rect x="3" y="3" width="7" height="7" stroke="currentColor" stroke-width="2"/>
+                            <rect x="14" y="3" width="7" height="7" stroke="currentColor" stroke-width="2"/>
+                            <rect x="3" y="14" width="7" height="7" stroke="currentColor" stroke-width="2"/>
+                            <rect x="14" y="14" width="7" height="7" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        All Properties
+                    </button>
+                    <button class="filter-chip" data-filter="residential">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                            <path d="M3 9L12 2L21 9V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V9Z" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        Residential
+                    </button>
+                    <button class="filter-chip" data-filter="commercial">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                            <path d="M3 21H21M3 7L12 3L21 7M4 7V21M20 7V21M8 12H16M8 16H16" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        Commercial
+                    </button>
+                    <button class="filter-chip" data-filter="industrial">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                            <path d="M3 21V12L9 9V21M9 12L15 9V21M15 12L21 9V21M3 21H21" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        Industrial
+                    </button>
+                </div>
+            </div>
+
+            <!-- Recent Properties -->
+            <div class="properties-section">
+                <div class="section-header">
+                    <h2>Recent Properties</h2>
+                    <button class="btn-text">View All</button>
+                </div>
+
+                <div class="properties-grid">
+                    <!-- Properties will be dynamically rendered here by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Quick Stats -->
+            <div class="quick-stats">
+                <div class="stat-box">
+                    <div class="stat-icon" style="background: #dbeafe; color: #3b82f6;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M3 9L12 2L21 9V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V9Z" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-value" id="totalProperties">8</div>
+                        <div class="stat-label">Total Properties</div>
+                    </div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-icon" style="background: #d1fae5; color: #10b981;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-value" id="compliantProperties">6</div>
+                        <div class="stat-label">Compliant</div>
+                    </div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-icon" style="background: #fef3c7; color: #f59e0b;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 9V13M12 17H12.01M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-value" id="reviewProperties">2</div>
+                        <div class="stat-label">Need Review</div>
+                    </div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-icon" style="background: #ede9fe; color: #8b5cf6;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M9 5H7C5.89543 5 5 5.89543 5 7V19C5 20.1046 5.89543 21 7 21H17C18.1046 21 19 20.1046 19 19V7C19 5.89543 18.1046 5 17 5H15M9 5C9 6.10457 9.89543 7 11 7H13C14.1046 7 15 6.10457 15 5M9 5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-value">156</div>
+                        <div class="stat-label">Total Documents</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
+

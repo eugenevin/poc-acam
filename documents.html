@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Ingestion - ACAM.ai</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="documents-body">
+    <!-- Header -->
+    <header class="app-header">
+        <div class="header-container">
+            <div class="logo" onclick="window.location='search.html'" style="cursor: pointer;">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="32" height="32" rx="8" fill="url(#gradient)"/>
+                    <path d="M16 8L20 16H12L16 8Z" fill="white"/>
+                    <rect x="10" y="18" width="12" height="6" fill="white"/>
+                    <defs>
+                        <linearGradient id="gradient" x1="0" y1="0" x2="32" y2="32">
+                            <stop offset="0%" stop-color="#667eea"/>
+                            <stop offset="100%" stop-color="#764ba2"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <span class="logo-text">ACAM.ai</span>
+            </div>
+            <div class="header-actions">
+                <button class="btn-secondary" onclick="window.location='property.html'">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    Back to Property
+                </button>
+                <button class="btn-icon" title="Notifications">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M18 8C18 6.4087 17.3679 4.88258 16.2426 3.75736C15.1174 2.63214 13.5913 2 12 2C10.4087 2 8.88258 2.63214 7.75736 3.75736C6.63214 4.88258 6 6.4087 6 8C6 15 3 17 3 17H21C21 17 18 15 18 8Z" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                    <span class="notification-badge">1</span>
+                </button>
+                <div class="user-menu">
+                    <div class="user-avatar">AD</div>
+                    <span class="user-name">Admin</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="page-header-container">
+            <h1>Document Ingestion and OCR</h1>
+            <p class="page-subtitle">Upload, extract, and populate structural data from building documents</p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="documents-main">
+        <div class="documents-container">
+            <!-- Workflow Steps -->
+            <div class="workflow-steps">
+                <!-- Step 1: Upload -->
+                <div class="workflow-step">
+                    <div class="step-number">1</div>
+                    <div class="step-card">
+                        <div class="step-header">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                                <path d="M4 16V17C4 18.6569 5.34315 20 7 20H17C18.6569 20 20 18.6569 20 17V16M16 8L12 4M12 4L8 8M12 4V16" stroke="#667eea" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                            <h2>Upload</h2>
+                        </div>
+                        <div class="step-content">
+                            <ul class="feature-list">
+                                <li>
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                        <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#667eea" stroke-width="2"/>
+                                    </svg>
+                                    <span>PDF drawing set or photos</span>
+                                </li>
+                                <li>
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                        <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#667eea" stroke-width="2"/>
+                                    </svg>
+                                    <span>Auto index sheets</span>
+                                </li>
+                                <li>
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                        <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#667eea" stroke-width="2"/>
+                                    </svg>
+                                    <span>Detect General Notes and load maps</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Arrow -->
+                <div class="workflow-arrow">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
+                        <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="#9ca3af" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </div>
+
+                <!-- Step 2: Extract -->
+                <div class="workflow-step">
+                    <div class="step-number">2</div>
+                    <div class="step-card">
+                        <div class="step-header">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                                <circle cx="12" cy="12" r="3" stroke="#667eea" stroke-width="2"/>
+                                <path d="M12 2V6M12 18V22M22 12H18M6 12H2M19.07 4.93L16.24 7.76M7.76 16.24L4.93 19.07M19.07 19.07L16.24 16.24M7.76 7.76L4.93 4.93" stroke="#667eea" stroke-width="2"/>
+                            </svg>
+                            <h2>Extract</h2>
+                        </div>
+                        <div class="step-content">
+                            <ul class="feature-list">
+                                <li>
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                        <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#667eea" stroke-width="2"/>
+                                    </svg>
+                                    <span>Parse key fields</span>
+                                </li>
+                                <li>
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                        <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#667eea" stroke-width="2"/>
+                                    </svg>
+                                    <span>Map notes to data classes</span>
+                                </li>
+                                <li>
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                        <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#667eea" stroke-width="2"/>
+                                    </svg>
+                                    <span>Flag confidence level</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Arrow -->
+                <div class="workflow-arrow">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
+                        <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="#9ca3af" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </div>
+
+                <!-- Step 3: Populate -->
+                <div class="workflow-step">
+                    <div class="step-number">3</div>
+                    <div class="step-card">
+                        <div class="step-header">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                                <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#667eea" stroke-width="2"/>
+                            </svg>
+                            <h2>Populate</h2>
+                        </div>
+                        <div class="step-content">
+                            <ul class="feature-list">
+                                <li>
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                        <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#667eea" stroke-width="2"/>
+                                    </svg>
+                                    <span>Autofill fields with sources</span>
+                                </li>
+                                <li>
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                        <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#667eea" stroke-width="2"/>
+                                    </svg>
+                                    <span>Dev review queue for low confidence</span>
+                                </li>
+                                <li>
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                        <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#667eea" stroke-width="2"/>
+                                    </svg>
+                                    <span>User can edit and save</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Upload Section -->
+            <div class="upload-section">
+                <div class="upload-card">
+                    <h2>Upload Documents</h2>
+                    <p class="upload-description">Upload structural drawings, specifications, or photos for AI-powered processing</p>
+                    
+                    <div class="upload-zone" id="uploadZone">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none">
+                            <path d="M4 16V17C4 18.6569 5.34315 20 7 20H17C18.6569 20 20 18.6569 20 17V16M16 8L12 4M12 4L8 8M12 4V16" stroke="#9ca3af" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        <h3>Drop files here or click to browse</h3>
+                        <p>Supports: PDF, DWG, DXF, JPG, PNG (Max 100MB per file)</p>
+                        <button class="btn-primary btn-large" onclick="document.getElementById('fileInput').click()">
+                            Choose Files
+                        </button>
+                        <input type="file" id="fileInput" multiple accept=".pdf,.dwg,.dxf,.jpg,.jpeg,.png" style="display: none;">
+                    </div>
+
+                    <!-- Processing Status -->
+                    <div class="processing-status" id="processingStatus" style="display: none;">
+                        <div class="status-header">
+                            <h3>Processing Documents</h3>
+                            <span class="badge info">In Progress</span>
+                        </div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar-fill" id="progressBar" style="width: 0%;"></div>
+                        </div>
+                        <p class="status-text" id="statusText">Analyzing documents...</p>
+                    </div>
+                </div>
+
+                <!-- Recent Uploads -->
+                <div class="recent-uploads">
+                    <h3>Recent Uploads</h3>
+                    <div class="uploads-list">
+                        <div class="upload-item">
+                            <div class="upload-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M9 5H7C5.89543 5 5 5.89543 5 7V19C5 20.1046 5.89543 21 7 21H17C18.1046 21 19 20.1046 19 19V7C19 5.89543 18.1046 5 17 5H15" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <div class="upload-info">
+                                <h4>S-100 Structural General Notes.pdf</h4>
+                                <p>Uploaded Nov 3, 2025 • 2.4 MB</p>
+                            </div>
+                            <div class="upload-status">
+                                <span class="badge success">Processed</span>
+                                <span class="confidence-score">98% confidence</span>
+                            </div>
+                            <button class="btn-icon" title="View results">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                    <path d="M15 12C15 13.6569 13.6569 15 12 15C10.3431 15 9 13.6569 9 12C9 10.3431 10.3431 9 12 9C13.6569 9 15 10.3431 15 12Z" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M2 12C2 12 5 5 12 5C19 5 22 12 22 12C22 12 19 19 12 19C5 19 2 12 2 12Z" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </button>
+                        </div>
+
+                        <div class="upload-item">
+                            <div class="upload-icon warning">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M9 5H7C5.89543 5 5 5.89543 5 7V19C5 20.1046 5.89543 21 7 21H17C18.1046 21 19 20.1046 19 19V7C19 5.89543 18.1046 5 17 5H15" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <div class="upload-info">
+                                <h4>S-201 Floor Plan Level 2.pdf</h4>
+                                <p>Uploaded Nov 3, 2025 • 5.8 MB</p>
+                            </div>
+                            <div class="upload-status">
+                                <span class="badge warning">Needs Review</span>
+                                <span class="confidence-score warning">62% confidence</span>
+                            </div>
+                            <button class="btn-icon" title="Review">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                    <path d="M12 9V13M12 17H12.01M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </button>
+                        </div>
+
+                        <div class="upload-item">
+                            <div class="upload-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M9 5H7C5.89543 5 5 5.89543 5 7V19C5 20.1046 5.89543 21 7 21H17C18.1046 21 19 20.1046 19 19V7C19 5.89543 18.1046 5 17 5H15" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <div class="upload-info">
+                                <h4>S-301 Lateral System Plan.pdf</h4>
+                                <p>Uploaded Nov 2, 2025 • 4.2 MB</p>
+                            </div>
+                            <div class="upload-status">
+                                <span class="badge success">Processed</span>
+                                <span class="confidence-score">95% confidence</span>
+                            </div>
+                            <button class="btn-icon" title="View results">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                    <path d="M15 12C15 13.6569 13.6569 15 12 15C10.3431 15 9 13.6569 9 12C9 10.3431 10.3431 9 12 9C13.6569 9 15 10.3431 15 12Z" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M2 12C2 12 5 5 12 5C19 5 22 12 22 12C22 12 19 19 12 19C5 19 2 12 2 12Z" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Features Grid -->
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 6.042C10.3516 4.56336 8.2144 3.74694 6 3.75H4V18.75H6C8.2144 18.7531 10.3516 19.5695 12 21.048M12 6.042V21.048M12 6.042C13.6484 4.56336 15.7856 3.74694 18 3.75H20V18.75H18C15.7856 18.7531 13.6484 19.5695 12 21.048" stroke="#667eea" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h4>Smart Sheet Detection</h4>
+                    <p>Automatically identifies and indexes structural sheets, general notes, and load maps from drawing sets.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                            <circle cx="12" cy="12" r="3" stroke="#667eea" stroke-width="2"/>
+                            <path d="M12 2V6M12 18V22M22 12H18M6 12H2M19.07 4.93L16.24 7.76M7.76 16.24L4.93 19.07M19.07 19.07L16.24 16.24M7.76 7.76L4.93 4.93" stroke="#667eea" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h4>AI-Powered OCR</h4>
+                    <p>Advanced OCR technology extracts text from drawings and maps to structural data classes with high accuracy.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                            <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#667eea" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h4>Confidence Scoring</h4>
+                    <p>Each extracted field is scored for confidence. Low-confidence items are flagged for human review.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                            <path d="M10 13C10.4295 13.5741 10.9774 14.0492 11.6066 14.3929C12.2357 14.7367 12.9315 14.9411 13.6467 14.9923C14.3618 15.0435 15.0796 14.9404 15.7513 14.6898C16.4231 14.4392 17.0331 14.0471 17.54 13.54L20.54 10.54C21.4508 9.59698 21.9548 8.33397 21.9434 7.02299C21.932 5.71201 21.4061 4.45794 20.4791 3.53087C19.5521 2.6038 18.298 2.07788 16.987 2.06649C15.676 2.05511 14.413 2.55915 13.47 3.47L11.75 5.18" stroke="#667eea" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M14 11C13.5705 10.4259 13.0226 9.95084 12.3934 9.60707C11.7643 9.26331 11.0685 9.05888 10.3533 9.00768C9.63819 8.95647 8.92037 9.05961 8.24861 9.31018C7.57685 9.56077 6.96689 9.95285 6.46 10.46L3.46 13.46C2.54915 14.403 2.04512 15.666 2.05651 16.977C2.06789 18.288 2.59382 19.5421 3.52089 20.4691C4.44796 21.3962 5.70203 21.9221 7.01301 21.9335C8.32399 21.9449 9.58701 21.4409 10.53 20.53L12.24 18.82" stroke="#667eea" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h4>Source Linking</h4>
+                    <p>Every extracted value links back to its source document and page number for full traceability.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                            <path d="M11 4H4C3.46957 4 2.96086 4.21071 2.58579 4.58579C2.21071 4.96086 2 5.46957 2 6V20C2 20.5304 2.21071 21.0391 2.58579 21.4142C2.96086 21.7893 3.46957 22 4 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V13M18.5 2.5C18.8978 2.1022 19.4374 1.87868 20 1.87868C20.5626 1.87868 21.1022 2.1022 21.5 2.5C21.8978 2.8978 22.1213 3.43739 22.1213 4C22.1213 4.56261 21.8978 5.1022 21.5 5.5L12 15L8 16L9 12L18.5 2.5Z" stroke="#667eea" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h4>User Editing</h4>
+                    <p>Users can review, edit, and approve all extracted data before it's saved to the property record.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                            <path d="M9 5H7C5.89543 5 5 5.89543 5 7V19C5 20.1046 5.89543 21 7 21H17C18.1046 21 19 20.1046 19 19V7C19 5.89543 18.1046 5 17 5H15M9 5C9 6.10457 9.89543 7 11 7H13C14.1046 7 15 6.10457 15 5M9 5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5M12 12H15M12 16H15M9 12H9.01M9 16H9.01" stroke="#667eea" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h4>Review Queue</h4>
+                    <p>Low-confidence extractions are automatically queued for developer or engineer review before population.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="app.js"></script>
+    <script>
+        // File upload handling
+        const uploadZone = document.getElementById('uploadZone');
+        const fileInput = document.getElementById('fileInput');
+        const processingStatus = document.getElementById('processingStatus');
+        const progressBar = document.getElementById('progressBar');
+        const statusText = document.getElementById('statusText');
+
+        // Drag and drop
+        uploadZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadZone.style.borderColor = '#667eea';
+            uploadZone.style.background = 'rgba(102, 126, 234, 0.05)';
+        });
+
+        uploadZone.addEventListener('dragleave', (e) => {
+            e.preventDefault();
+            uploadZone.style.borderColor = '#d1d5db';
+            uploadZone.style.background = 'var(--gray-50)';
+        });
+
+        uploadZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadZone.style.borderColor = '#d1d5db';
+            uploadZone.style.background = 'var(--gray-50)';
+            const files = e.dataTransfer.files;
+            handleFiles(files);
+        });
+
+        fileInput.addEventListener('change', (e) => {
+            handleFiles(e.target.files);
+        });
+
+        function handleFiles(files) {
+            if (files.length > 0) {
+                uploadZone.style.display = 'none';
+                processingStatus.style.display = 'block';
+                simulateProcessing();
+            }
+        }
+
+        function simulateProcessing() {
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += Math.random() * 15;
+                if (progress >= 100) {
+                    progress = 100;
+                    progressBar.style.width = '100%';
+                    statusText.textContent = 'Processing complete! Data extracted successfully.';
+                    clearInterval(interval);
+                    setTimeout(() => {
+                        processingStatus.querySelector('.badge').textContent = 'Complete';
+                        processingStatus.querySelector('.badge').classList.remove('info');
+                        processingStatus.querySelector('.badge').classList.add('success');
+                    }, 500);
+                } else {
+                    progressBar.style.width = progress + '%';
+                    const stages = [
+                        'Uploading files...',
+                        'Analyzing document structure...',
+                        'Running OCR on sheets...',
+                        'Extracting key fields...',
+                        'Mapping to data classes...',
+                        'Calculating confidence scores...'
+                    ];
+                    statusText.textContent = stages[Math.floor(progress / 20)];
+                }
+            }, 500);
+        }
+    </script>
+</body>
+</html>
+
