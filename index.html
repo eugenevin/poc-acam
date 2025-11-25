@@ -13,7 +13,7 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container nav-container">
-            <div class="logo">
+            <a href="index.html" class="logo" style="text-decoration: none; cursor: pointer;">
                 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect width="32" height="32" rx="8" fill="url(#gradient)"/>
                     <path d="M16 8L20 16H12L16 8Z" fill="white"/>
@@ -26,12 +26,18 @@
                     </defs>
                 </svg>
                 <span class="logo-text">ACAM.ai</span>
-            </div>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <div class="nav-links">
                 <a href="#problem">Problem</a>
                 <a href="#solution">Solution</a>
                 <a href="#differentiation">Why Us</a>
-                <a href="dashboard.html" class="btn-primary">View Dashboard</a>
+                <a href="login.html" class="btn-secondary" id="loginLink">Sign In</a>
+                <a href="login.html" class="btn-primary" id="dashboardLink" style="display: none;">View Dashboard</a>
             </div>
         </div>
     </nav>
@@ -44,8 +50,8 @@
                 <h1 class="hero-title">The Health Record for Your Buildings</h1>
                 <p class="hero-subtitle">AI-powered platform for intelligent building asset management. Track structural systems, ensure compliance, and make informed decisions.</p>
                 <div class="hero-cta">
-                    <a href="dashboard.html" class="btn-large btn-primary">Explore Dashboard</a>
-                    <a href="#solution" class="btn-large btn-secondary">Learn More</a>
+                <a href="login.html" class="btn-large btn-primary" id="heroDashboardBtn">Get Started</a>
+                <a href="#solution" class="btn-large btn-secondary">Learn More</a>
                 </div>
                 <div class="hero-stats">
                     <div class="stat">
@@ -63,21 +69,7 @@
                 </div>
             </div>
             <div class="hero-visual">
-                <div class="dashboard-preview">
-                    <div class="preview-header">
-                        <div class="preview-dots">
-                            <span></span><span></span><span></span>
-                        </div>
-                    </div>
-                    <div class="preview-content">
-                        <div class="preview-sidebar"></div>
-                        <div class="preview-main">
-                            <div class="preview-card"></div>
-                            <div class="preview-card"></div>
-                            <div class="preview-card"></div>
-                        </div>
-                    </div>
-                </div>
+                <img src="building-diagram.png" alt="Building Systems Diagram - HVAC, Electrical, Plumbing, Fire Suppression" class="hero-building-diagram">
             </div>
         </div>
     </section>
@@ -123,7 +115,14 @@
                 </div>
             </div>
             <div class="callout-box">
-                <p class="callout-text">There is no health record for buildings.</p>
+                <svg class="callout-icon" width="32" height="32" viewBox="0 0 24 24" fill="none">
+                    <path d="M20.84 4.61C20.3292 4.099 19.7228 3.69364 19.0554 3.41708C18.3879 3.14052 17.6725 2.99817 16.95 2.99817C16.2275 2.99817 15.5121 3.14052 14.8446 3.41708C14.1772 3.69364 13.5708 4.099 13.06 4.61L12 5.67L10.94 4.61C9.9083 3.57831 8.50903 2.99871 7.05 2.99871C5.59096 2.99871 4.19169 3.57831 3.16 4.61C2.1283 5.64169 1.54871 7.04097 1.54871 8.5C1.54871 9.95903 2.1283 11.3583 3.16 12.39L4.22 13.45L12 21.23L19.78 13.45L20.84 12.39C21.351 11.8792 21.7564 11.2728 22.0329 10.6054C22.3095 9.93789 22.4518 9.22248 22.4518 8.5C22.4518 7.77752 22.3095 7.0621 22.0329 6.39464C21.7564 5.72718 21.351 5.12084 20.84 4.61V4.61Z" stroke="currentColor" stroke-width="2" fill="none"/>
+                    <line x1="12" y1="8" x2="12" y2="14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <div class="callout-content">
+                    <p class="callout-text">There is no health record for buildings.</p>
+                    <p class="callout-subtext">Until now.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -241,7 +240,7 @@
                             </div>
                         </div>
                     </div>
-                    <a href="dashboard.html" class="btn-large btn-primary">See It In Action</a>
+                    <a href="login.html" class="btn-large btn-primary">See It In Action</a>
                 </div>
                 <div class="differentiation-visual">
                     <div class="comparison-box">
@@ -282,7 +281,7 @@
             <div class="cta-content">
                 <h2>Ready to Transform Your Building Management?</h2>
                 <p>Join forward-thinking property owners and asset managers who are leveraging AI for smarter building operations.</p>
-                <a href="dashboard.html" class="btn-large btn-white">Explore Dashboard</a>
+                <a href="login.html" class="btn-large btn-white">Get Started</a>
             </div>
         </div>
     </section>
@@ -292,7 +291,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <div class="logo">
+                    <a href="index.html" class="logo" style="text-decoration: none; cursor: pointer;">
                         <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <rect width="32" height="32" rx="8" fill="url(#gradient2)"/>
                             <path d="M16 8L20 16H12L16 8Z" fill="white"/>
@@ -305,12 +304,12 @@
                             </defs>
                         </svg>
                         <span class="logo-text">ACAM.ai</span>
-                    </div>
+                    </a>
                     <p>The health record for your buildings</p>
                 </div>
                 <div class="footer-section">
                     <h4>Platform</h4>
-                    <a href="dashboard.html">Dashboard</a>
+                    <a href="login.html">Dashboard</a>
                     <a href="#solution">Features</a>
                     <a href="#differentiation">Why Us</a>
                 </div>

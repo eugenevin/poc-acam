@@ -9,11 +9,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
-<body class="property-body">
-    <!-- Header -->
-    <header class="app-header">
-        <div class="header-container">
-            <div class="logo" onclick="window.location='search.html'" style="cursor: pointer;">
+<body class="dashboard-body">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <a href="index.html" class="logo" style="text-decoration: none; cursor: pointer;">
                 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect width="32" height="32" rx="8" fill="url(#gradient)"/>
                     <path d="M16 8L20 16H12L16 8Z" fill="white"/>
@@ -26,61 +26,193 @@
                     </defs>
                 </svg>
                 <span class="logo-text">ACAM.ai</span>
-            </div>
-            <div class="header-actions">
-                <button class="btn-secondary" onclick="window.location='search.html'">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                        <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                    </svg>
-                    Back to Search
-                </button>
-                <button class="btn-icon" title="Notifications">
+            </a>
+        </div>
+        <nav class="sidebar-nav">
+            <!-- General Overview -->
+            <a href="#" class="nav-item active" data-section="general">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path d="M9 5H7C5.89543 5 5 5.89543 5 7V19C5 20.1046 5.89543 21 7 21H17C18.1046 21 19 20.1046 19 19V7C19 5.89543 18.1046 5 17 5H15M9 5C9 6.10457 9.89543 7 11 7H13C14.1046 7 15 6.10457 15 5M9 5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5M12 12H15M12 16H15M9 12H9.01M9 16H9.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                General
+            </a>
+
+            <!-- Core Systems -->
+            <button class="nav-section-toggle" data-toggle="core-systems" aria-expanded="false">
+                <span>Core Systems</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" class="toggle-icon">
+                    <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            <div class="nav-submenu collapsed" data-submenu="core-systems">
+                <a href="#" class="nav-item" data-section="structural">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                        <path d="M18 8C18 6.4087 17.3679 4.88258 16.2426 3.75736C15.1174 2.63214 13.5913 2 12 2C10.4087 2 8.88258 2.63214 7.75736 3.75736C6.63214 4.88258 6 6.4087 6 8C6 15 3 17 3 17H21C21 17 18 15 18 8Z" stroke="currentColor" stroke-width="2"/>
+                        <path d="M12 2L2 7V12C2 17 6 21.5 12 22C18 21.5 22 17 22 12V7L12 2Z" stroke="currentColor" stroke-width="2"/>
                     </svg>
-                    <span class="notification-badge">2</span>
-                </button>
-                <div class="user-menu">
-                    <div class="user-avatar">AD</div>
-                    <span class="user-name">Admin</span>
+                    Structural
+                </a>
+                <a href="#" class="nav-item" data-section="architectural">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M3 21H21M3 7L12 3L21 7M4 7V21M20 7V21M8 12H16M8 16H16" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                    Architectural
+                </a>
+                <a href="#" class="nav-item" data-section="mechanical">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20Z" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                    Mechanical (HVAC)
+                </a>
+                <a href="#" class="nav-item" data-section="electrical">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                    Electrical
+                </a>
+                <a href="#" class="nav-item" data-section="plumbing">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M4 14H20M4 18H20M4 10H20M4 6H20" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                    Plumbing
+                </a>
+                <a href="#" class="nav-item" data-section="fire">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M12 2C12 2 5 8 5 13C5 15.6522 6.05357 18.1957 7.92893 20.0711C9.8043 21.9464 12.3478 23 15 23C17.6522 23 20.1957 21.9464 22.0711 20.0711C23.9464 18.1957 25 15.6522 25 13C25 8 18 2 18 2" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                    Fire Protection
+                </a>
+                <a href="#" class="nav-item" data-section="accessibility">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <circle cx="12" cy="6" r="2" stroke="currentColor" stroke-width="2"/>
+                        <path d="M12 10C10.3431 10 9 11.3431 9 13V15C9 16.1046 9.89543 17 11 17H13C14.1046 17 15 16.1046 15 15V13C15 11.3431 13.6569 10 12 10Z" stroke="currentColor" stroke-width="2"/>
+                        <path d="M8 22V18M16 22V18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    Accessibility & Egress
+                </a>
+                <a href="#" class="nav-item" data-section="roof">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M3 12L12 3L21 12M5 10V20C5 20.5523 5.44772 21 6 21H18C18.5523 21 19 20.5523 19 20V10" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                    Roof Systems
+                </a>
+            </div>
+
+            <!-- Risk & Operations -->
+            <button class="nav-section-toggle" data-toggle="risk-operations" aria-expanded="false">
+                <span>Risk & Operations</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" class="toggle-icon">
+                    <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            <div class="nav-submenu collapsed" data-submenu="risk-operations">
+                <a href="#" class="nav-item" data-section="environmental">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                        <path d="M12 2C14.5 4 16 7 16 10C16 13 14.5 16 12 18C9.5 16 8 13 8 10C8 7 9.5 4 12 2Z" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                    Environmental
+                </a>
+                <a href="#" class="nav-item" data-section="cybersecurity">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
+                        <path d="M12 2V6M12 18V22M22 12H18M6 12H2M19.07 4.93L16.24 7.76M7.76 16.24L4.93 19.07M19.07 19.07L16.24 16.24M7.76 7.76L4.93 4.93" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                    Cybersecurity & Smart Systems
+                </a>
+                <a href="#" class="nav-item" data-section="resilience">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M12 2L2 7V12C2 17 6 21.5 12 22C18 21.5 22 17 22 12V7L12 2Z" stroke="currentColor" stroke-width="2"/>
+                        <path d="M9 12L11 14L15 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    Resilience & Risk Insights
+                </a>
+                <a href="#" class="nav-item" data-section="maintenance">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M12 8V12L15 15M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    Maintenance & Capital Planning
+                </a>
+            </div>
+
+            <!-- Property Context -->
+            <button class="nav-section-toggle" data-toggle="property-context" aria-expanded="false">
+                <span>Property Context</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" class="toggle-icon">
+                    <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            <div class="nav-submenu collapsed" data-submenu="property-context">
+                <a href="#" class="nav-item" data-section="zoning">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M9 5H7C5.89543 5 5 5.89543 5 7V19C5 20.1046 5.89543 21 7 21H17C18.1046 21 19 20.1046 19 19V7C19 5.89543 18.1046 5 17 5H15M9 5C9 6.10457 9.89543 7 11 7H13C14.1046 7 15 6.10457 15 5M9 5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    Zoning & Entitlements
+                </a>
+                <a href="#" class="nav-item" data-section="ownership">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M3 12L5 10M5 10L12 3L19 10M5 10V20C5 20.5523 5.44772 21 6 21H9M19 10L21 12M19 10V20C19 20.5523 18.5523 21 18 21H15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    Ownership & Leasing
+                </a>
+            </div>
+        </nav>
+        <div class="sidebar-footer">
+            <button class="btn-secondary" onclick="window.location='search.html'" style="width: 100%; justify-content: center;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                Back to Search
+            </button>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="dashboard-main">
+        <!-- Property Header -->
+        <div class="dashboard-header">
+            <div class="header-content">
+                <div class="header-left">
+                    <p class="property-eyebrow">Portfolio · Multifamily</p>
+                    <h1 id="propertyTitle">Walnut Creek Transit Village</h1>
+                    <p class="header-subtitle" id="propertyLocation">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                            <path d="M21 10C21 17 12 23 12 23 23 3 17 3 10C3 7.61305 3.94821 5.32387 5.63604 3.63604C7.32387 1.94821 9.61305 1 12 1C14.3869 1 16.6761 1.94821 18.364 3.63604C20.0518 5.32387 21 7.61305 21 10Z" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        Walnut Creek, CA • Updated 3d ago
+                    </p>
+                </div>
+                <div class="header-right">
+                    <button class="btn-primary" onclick="window.location='documents.html'" aria-label="Upload documents">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M12 4V20M20 12H4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        Upload documents
+                    </button>
+                    <div class="export-dropdown">
+                        <button class="btn-secondary" id="exportBtn" type="button" aria-haspopup="true" aria-expanded="false">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <path d="M4 16V17C4 18.6569 5.34315 20 7 20H17C18.6569 20 20 18.6569 20 17V16M16 8L12 4M12 4L8 8M12 4V16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                            Export report
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </button>
+                        <div class="export-menu" id="exportMenu" role="menu" aria-label="Export options">
+                            <button role="menuitem" data-export="full">Full report</button>
+                            <button role="menuitem" data-export="structural">Structural only</button>
+                            <button role="menuitem" data-export="compliance">Compliance digest</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </header>
 
-    <!-- Property Header -->
-    <div class="property-header">
-        <div class="property-header-container">
-            <div class="property-header-content">
-                <h1 id="propertyTitle">Walnut Creek Transit Village</h1>
-                <p class="property-subtitle">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                        <path d="M21 10C21 17 12 23 12 23C12 23 3 17 3 10C3 7.61305 3.94821 5.32387 5.63604 3.63604C7.32387 1.94821 9.61305 1 12 1C14.3869 1 16.6761 1.94821 18.364 3.63604C20.0518 5.32387 21 7.61305 21 10Z" stroke="currentColor" stroke-width="2"/>
-                        <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2"/>
-                    </svg>
-                    Walnut Creek, California
-                </p>
-            </div>
-            <div class="property-header-actions">
-                <button class="btn-secondary">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                        <path d="M4 16V17C4 18.6569 5.34315 20 7 20H17C18.6569 20 20 18.6569 20 17V16M16 8L12 4M12 4L8 8M12 4V16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                    </svg>
-                    Export Report
-                </button>
-                <button class="btn-primary" onclick="window.location='documents.html'">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                        <path d="M12 4V20M20 12H4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                    </svg>
-                    Upload Documents
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Main Content -->
-    <main class="property-main">
-        <div class="property-container">
+        <!-- General Section (Default) -->
+        <div class="content-section active" id="section-general">
+            <h2 style="font-size: 1.5rem; font-weight: 700; color: var(--gray-900); margin-bottom: var(--spacing-xl);">General Information</h2>
+            
             <!-- Property Visual & Metadata -->
             <div class="property-overview-section">
                 <div class="property-visual-card">
@@ -180,184 +312,140 @@
                     </div>
                 </div>
 
-                <div class="property-metadata-card">
-                    <h3>Metadata</h3>
-                    <div class="metadata-list">
-                        <div class="metadata-section">
-                            <h4>Location & Jurisdiction</h4>
-                            <div class="metadata-item">
-                                <span class="metadata-label">Address</span>
-                                <span class="metadata-value">1234 Transit Way, Walnut Creek, CA 94596</span>
-                            </div>
-                            <div class="metadata-item">
-                                <span class="metadata-label">Geolocation</span>
-                                <span class="metadata-value">37.9101° N, 122.0652° W</span>
-                            </div>
-                            <div class="metadata-item">
-                                <span class="metadata-label">Jurisdiction</span>
-                                <span class="metadata-value">City of Walnut Creek</span>
-                            </div>
+                <aside class="property-info-card">
+                    <h3>Salient Information</h3>
+                    <div class="salient-section">
+                        <h4>Location & Jurisdiction</h4>
+                        <div class="info-row">
+                            <span class="info-label">Address</span>
+                            <span class="info-value">1234 Transit Way, Walnut Creek, CA 94596</span>
                         </div>
-
-                        <div class="metadata-section">
-                            <h4>Building Characteristics</h4>
-                            <div class="metadata-item">
-                                <span class="metadata-label">Year Built</span>
-                                <span class="metadata-value">2018</span>
-                            </div>
-                            <div class="metadata-item">
-                                <span class="metadata-label">Stories</span>
-                                <span class="metadata-value">5 Floors</span>
-                            </div>
-                            <div class="metadata-item">
-                                <span class="metadata-label">Floor Area</span>
-                                <span class="metadata-value">125,000 sq ft</span>
-                            </div>
+                        <div class="info-row coordinates">
+                            <span class="info-label">Coordinates</span>
+                            <span class="info-value">
+                                37.9101° N, 122.0652° W
+                                <button class="btn-icon copy-btn" data-copy="37.9101,-122.0652" aria-label="Copy coordinates">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                        <path d="M9 5H7C5.89543 5 5 5.89543 5 7V19C5 20.1046 5.89543 21 7 21H17C18.1046 21 19 20.1046 19 19V7C19 5.89543 18.1046 5 17 5H15M9 5C9 6.10457 9.89543 7 11 7H13C14.1046 7 15 6.10457 15 5M9 5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5" stroke="currentColor" stroke-width="2"/>
+                                    </svg>
+                                </button>
+                            </span>
                         </div>
-
-                        <div class="metadata-section">
-                            <h4>Use & Classification</h4>
-                            <div class="metadata-item">
-                                <span class="metadata-label">Primary Occupancy</span>
-                                <span class="metadata-value">Residential (R-2)</span>
-                            </div>
-                            <div class="metadata-item">
-                                <span class="metadata-label">Use Type</span>
-                                <span class="metadata-value">Multi-family Residential</span>
-                            </div>
+                        <div class="info-row">
+                            <span class="info-label">Jurisdiction (AHJ)</span>
+                            <span class="info-value">City of Walnut Creek · Contra Costa County, CA</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">Property ID</span>
+                            <span class="info-value">WC-TV-001 · APN 178-090-024</span>
                         </div>
                     </div>
-                </div>
-            </div>
 
-            <!-- Category Tabs -->
-            <div class="category-tabs-container">
-                <div class="category-tabs">
-                    <button class="category-tab active" data-category="structural">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                            <path d="M3 9L12 2L21 9V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V9Z" stroke="currentColor" stroke-width="2"/>
-                        </svg>
-                        Structural
-                    </button>
-                    <button class="category-tab" data-category="architectural">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                            <path d="M3 21H21M3 7L12 3L21 7M4 7V21M20 7V21M8 12H16M8 16H16" stroke="currentColor" stroke-width="2"/>
-                        </svg>
-                        Architectural
-                    </button>
-                    <button class="category-tab" data-category="mechanical">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                            <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
-                            <path d="M12 2V6M12 18V22M22 12H18M6 12H2M19.07 4.93L16.24 7.76M7.76 16.24L4.93 19.07M19.07 19.07L16.24 16.24M7.76 7.76L4.93 4.93" stroke="currentColor" stroke-width="2"/>
-                        </svg>
-                        Mechanical
-                    </button>
-                    <button class="category-tab" data-category="electrical">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                            <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" stroke="currentColor" stroke-width="2"/>
-                        </svg>
-                        Electrical
-                    </button>
-                    <button class="category-tab" data-category="plumbing">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                            <path d="M12 2V22M8 6H16M6 12H18M8 18H16" stroke="currentColor" stroke-width="2"/>
-                        </svg>
-                        Plumbing
-                    </button>
-                    <button class="category-tab" data-category="fire">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                            <path d="M12 2C12 2 9 6 9 10C9 12.2091 10.7909 14 13 14C15.2091 14 17 12.2091 17 10C17 6 12 2 12 2Z" stroke="currentColor" stroke-width="2"/>
-                            <path d="M12 14C12 14 10 16 10 18C10 19.1046 10.8954 20 12 20C13.1046 20 14 19.1046 14 18C14 16 12 14 12 14Z" stroke="currentColor" stroke-width="2"/>
-                        </svg>
-                        Fire Protection
-                    </button>
-                    <button class="category-tab" data-category="accessibility">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                            <circle cx="12" cy="5" r="2" stroke="currentColor" stroke-width="2"/>
-                            <path d="M10 22V12M10 12L7 10M10 12L13 10L16 14V22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                            <path d="M15 12H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                        </svg>
-                        Accessibility and Egress
-                    </button>
-                    <button class="category-tab" data-category="roof">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                            <path d="M3 12L12 3L21 12M5 10V20C5 20.5304 5.21071 21.0391 5.58579 21.4142C5.96086 21.7893 6.46957 22 7 22H17C17.5304 22 18.0391 21.7893 18.4142 21.4142C18.7893 21.0391 19 20.5304 19 20V10" stroke="currentColor" stroke-width="2"/>
-                        </svg>
-                        Roof Systems
-                    </button>
-                    <button class="category-tab" data-category="environmental">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                            <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="2"/>
-                            <path d="M12 2C14.5 4.5 16 8 16 12C16 16 14.5 19.5 12 22C9.5 19.5 8 16 8 12C8 8 9.5 4.5 12 2Z" stroke="currentColor" stroke-width="2"/>
-                        </svg>
-                        Environmental and Format
-                    </button>
-                    <button class="category-tab" data-category="cybersecurity">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                            <path d="M12 2L2 7V12C2 17 6 21.5 12 22C18 21.5 22 17 22 12V7L12 2Z" stroke="currentColor" stroke-width="2"/>
-                            <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
-                        </svg>
-                        Cybersecurity and Smart Systems
-                    </button>
-                    <button class="category-tab" data-category="resilience">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                            <path d="M12 2L2 7V12C2 17 6 21.5 12 22C18 21.5 22 17 22 12V7L12 2Z" stroke="currentColor" stroke-width="2"/>
-                            <path d="M9 12L11 14L15 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                        </svg>
-                        Resilience and Risk Insights
-                    </button>
-                    <button class="category-tab" data-category="maintenance">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                            <path d="M12 8V12L15 15M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2"/>
-                            <path d="M12 2V3M12 21V22M22 12H21M3 12H2" stroke="currentColor" stroke-width="2"/>
-                        </svg>
-                        Maintenance and Capital Planning
-                    </button>
-                    <button class="category-tab" data-category="zoning">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                            <path d="M9 5H7C5.89543 5 5 5.89543 5 7V19C5 20.1046 5.89543 21 7 21H17C18.1046 21 19 20.1046 19 19V7C19 5.89543 18.1046 5 17 5H15M9 5C9 6.10457 9.89543 7 11 7H13C14.1046 7 15 6.10457 15 5M9 5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5M12 12H15M12 16H15M9 12H9.01M9 16H9.01" stroke="currentColor" stroke-width="2"/>
-                        </svg>
-                        Zoning and Entitlements
-                    </button>
-                    <button class="category-tab" data-category="ownership">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                            <path d="M3 9L12 2L21 9V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V9Z" stroke="currentColor" stroke-width="2"/>
-                            <path d="M9 22V12H15V22" stroke="currentColor" stroke-width="2"/>
-                        </svg>
-                        Ownership and Leasing <span style="font-size: 0.75rem; opacity: 0.7;">(optional)</span>
-                    </button>
-                </div>
-            </div>
+                    <div class="salient-section">
+                        <h4>Key Specs</h4>
+                        <div class="info-row">
+                            <span class="info-label">Year built</span>
+                            <span class="info-value">2018</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">Stories</span>
+                            <span class="info-value">5 stories above grade, 0 below</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">Gross floor area (GFA)</span>
+                            <span class="info-value">125,000 sq ft</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">Building height</span>
+                            <span class="info-value">65 ft • 13 ft typical story height</span>
+                        </div>
+                    </div>
 
-            <!-- Tab Content -->
-            <div class="tab-content-container">
-                <!-- Structural Tab Content (Active) -->
-                <div class="tab-content active" data-content="structural">
-                    <div class="structural-layout">
+                    <div class="salient-section">
+                        <h4>Occupancy & Classification</h4>
+                        <div class="info-row">
+                            <span class="info-label">Primary occupancy (IBC)</span>
+                            <span class="info-value">Residential · R-2</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">Secondary occupancy</span>
+                            <span class="info-value">Retail podium (M)</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">Use type</span>
+                            <span class="info-value">Multifamily with ground-floor retail</span>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+
+        <!-- Structural Section -->
+        <div class="content-section" id="section-structural">
+                        <header class="module-panel-header">
+                            <div class="module-title-group">
+                                <p class="module-eyebrow">Core systems</p>
+                                <div class="module-title-with-status">
+                                    <h2 id="module-structural">Structural</h2>
+                                    <div class="module-status-chip chip-success">
+                                        <span class="status-dot"></span>
+                                        <span>Clear</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </header>
+                        <div class="module-summary-strip">
+                            <div class="summary-item wide">
+                                <span class="summary-label">System summary</span>
+                                <p>Gravity: PT flat slabs over reinforced concrete columns. Lateral: special RC shear walls with special moment frames. Diaphragm: cast-in-place concrete.</p>
+                            </div>
+                            <div class="summary-item">
+                                <span class="summary-label">Structural Health Score</span>
+                                <div class="summary-health">
+                                    <div class="health-bar mini">
+                                        <span style="width:92%"></span>
+                                    </div>
+                                    <span class="summary-value">92%</span>
+                                </div>
+                            </div>
+                            <div class="summary-item">
+                                <span class="summary-label">Next deadline</span>
+                                <p>Annual structural inspection · Sep 15, 2026</p>
+                            </div>
+                            <div class="summary-item">
+                                <span class="summary-label">Last updated</span>
+                                <p>Updated 3d ago</p>
+                            </div>
+                        </div>
+
+                        <div class="structural-layout">
                         <!-- Left Sidebar - Sections -->
                         <div class="structural-sidebar">
                             <h3>Sections</h3>
                             <nav class="structural-nav">
-                                <a href="#building-metadata" class="structural-nav-item active" data-section="building-metadata">
-                                    <span class="nav-number">1.</span> Building metadata
+                                <a href="#structural-overview" class="structural-nav-item active" data-section="structural-overview">
+                                    <span class="nav-number">1.</span> Structural Overview
                                 </a>
                                 <a href="#jurisdiction-codes" class="structural-nav-item" data-section="jurisdiction-codes">
-                                    <span class="nav-number">2.</span> Jurisdiction and codes
+                                    <span class="nav-number">2.</span> Jurisdiction & Codes
                                 </a>
                                 <a href="#design-parameters" class="structural-nav-item" data-section="design-parameters">
-                                    <span class="nav-number">3.</span> Design parameters and loads
+                                    <span class="nav-number">3.</span> Design Parameters & Loads
+                                </a>
+                                <a href="#materials" class="structural-nav-item" data-section="materials">
+                                    <span class="nav-number">4.</span> Materials
                                 </a>
                                 <a href="#foundation-system" class="structural-nav-item" data-section="foundation-system">
-                                    <span class="nav-number">4.</span> Foundation system
+                                    <span class="nav-number">5.</span> Foundation System
                                 </a>
                                 <a href="#gravity-system" class="structural-nav-item" data-section="gravity-system">
-                                    <span class="nav-number">5.</span> Gravity system
+                                    <span class="nav-number">6.</span> Gravity System
                                 </a>
                                 <a href="#lateral-system" class="structural-nav-item" data-section="lateral-system">
-                                    <span class="nav-number">6.</span> Lateral system
+                                    <span class="nav-number">7.</span> Lateral System
                                 </a>
-                                <a href="#materials-health" class="structural-nav-item" data-section="materials-health">
-                                    <span class="nav-number">7.</span> Materials and health history
+                                <a href="#condition-inspections" class="structural-nav-item" data-section="condition-inspections">
+                                    <span class="nav-number">8.</span> Condition & Inspections
                                 </a>
                             </nav>
                         </div>
@@ -365,221 +453,321 @@
                         <!-- Right Content Area -->
                         <div class="structural-content-area">
                             <!-- Section 1: Building Metadata -->
-                            <div class="structural-section active" id="building-metadata">
-                                <h2>Building metadata</h2>
+                            <div class="structural-section active" id="structural-overview">
+                                <h2>Structural Overview</h2>
                                 <div class="structural-data">
                                     <div class="data-row">
-                                        <span class="data-label">Year built:</span>
+                                        <span class="data-label">Year built</span>
                                         <span class="data-value">2018</span>
                                     </div>
                                     <div class="data-row">
-                                        <span class="data-label">Stories:</span>
+                                        <span class="data-label">Stories</span>
                                         <span class="data-value">5 above grade, 0 below</span>
                                     </div>
                                     <div class="data-row">
-                                        <span class="data-label">Gross floor area (GFA):</span>
+                                        <span class="data-label">Gross floor area (GFA)</span>
                                         <span class="data-value">125,000 sq ft</span>
                                     </div>
                                     <div class="data-row">
-                                        <span class="data-label">Occupancy and use:</span>
-                                        <span class="data-value">Residential multi-family (R-2)</span>
+                                        <span class="data-label">Building height / Typical floor height</span>
+                                        <span class="data-value">65 ft overall / 13 ft typical floor height</span>
                                     </div>
                                     <div class="data-row">
-                                        <span class="data-label">Geo coordinates:</span>
-                                        <span class="data-value">37.9101° N, 122.0652° W</span>
+                                        <span class="data-label">Primary construction material</span>
+                                        <span class="data-value">Reinforced concrete (PT slabs + RC columns)</span>
                                     </div>
                                     <div class="data-row">
-                                        <span class="data-label">Building height:</span>
-                                        <span class="data-value">65 feet</span>
+                                        <span class="data-label">System summary</span>
+                                        <span class="data-value">PT flat slabs over RC columns with perimeter transfer beams; special RC shear walls with SMRF backup; cast-in-place rigid diaphragms.</span>
                                     </div>
                                     <div class="data-row">
-                                        <span class="data-label">Typical floor height:</span>
-                                        <span class="data-value">13 feet</span>
+                                        <span class="data-label">Risk category (ASCE 7)</span>
+                                        <span class="data-value">II</span>
+                                    </div>
+                                    <div class="data-row">
+                                        <span class="data-label">Diaphragm type</span>
+                                        <span class="data-value">Rigid (cast-in-place concrete)</span>
+                                    </div>
+                                </div>
+                                <div class="section-footer">
+                                    <div class="notes">
+                                        <span class="notes-label">Notes</span>
+                                        <p>Mixed-use podium with residential levels above parking. Structural grid aligns with podium retail bays.</p>
+                                    </div>
+                                    <div class="sources">
+                                        <span class="notes-label">Sources</span>
+                                        <p>S-000 General Notes · Project spec 03 3000</p>
                                     </div>
                                 </div>
                             </div>
 
                             <!-- Section 2: Jurisdiction and Codes -->
                             <div class="structural-section" id="jurisdiction-codes">
-                                <h2>Jurisdiction and codes</h2>
+                                <h2>Jurisdiction & Codes</h2>
                                 <div class="structural-data">
                                     <div class="data-row">
-                                        <span class="data-label">City:</span>
-                                        <span class="data-value">Walnut Creek</span>
+                                        <span class="data-label">City / County / State</span>
+                                        <span class="data-value">Walnut Creek · Contra Costa County · California</span>
                                     </div>
                                     <div class="data-row">
-                                        <span class="data-label">County:</span>
-                                        <span class="data-value">Contra Costa County</span>
-                                    </div>
-                                    <div class="data-row">
-                                        <span class="data-label">State:</span>
-                                        <span class="data-value">California</span>
-                                    </div>
-                                    <div class="data-row">
-                                        <span class="data-label">Governing code at build:</span>
+                                        <span class="data-label">Governing code at build</span>
                                         <span class="data-value">2016 California Building Code (CBC)</span>
                                     </div>
                                     <div class="data-row">
-                                        <span class="data-label">Reference standards:</span>
-                                        <span class="data-value">ASCE 7-10, ACI 318-14</span>
+                                        <span class="data-label">Current adopted codes</span>
+                                        <span class="data-value">2022 CBC + local amendments (effective Jan 2023)</span>
                                     </div>
                                     <div class="data-row">
-                                        <span class="data-label">Local ordinances and mandates:</span>
-                                        <span class="data-value">Walnut Creek Municipal Code Title 15</span>
+                                        <span class="data-label">Reference standards</span>
+                                        <span class="data-value">ASCE 7-10, ACI 318-14, ACI 301-16, AWS D1.4</span>
                                     </div>
                                     <div class="data-row">
-                                        <span class="data-label">Risk category:</span>
-                                        <span class="data-value">II (Standard Occupancy)</span>
+                                        <span class="data-label">Jurisdiction (AHJ)</span>
+                                        <span class="data-value">City of Walnut Creek Building Division</span>
+                                    </div>
+                                    <div class="data-row">
+                                        <span class="data-label">Local amendments & ordinances</span>
+                                        <span class="data-value">Municipal Code Title 15 · Contra Costa Green Building Ordinance</span>
+                                    </div>
+                                </div>
+                                <div class="section-footer">
+                                    <div class="notes">
+                                        <span class="notes-label">Notes</span>
+                                        <p>Risk Category II confirmed per permit set. City requires biennial accessible path inspection.</p>
+                                    </div>
+                                    <div class="sources">
+                                        <span class="notes-label">Sources</span>
+                                        <p>Permit 16-0452 · Walnut Creek Title 15 · AHJ onboarding call notes</p>
                                     </div>
                                 </div>
                             </div>
 
                             <!-- Section 3: Design Parameters and Loads -->
                             <div class="structural-section" id="design-parameters">
-                                <h2>Design parameters and loads</h2>
+                                <h2>Design Parameters & Loads</h2>
                                 
-                                <h3 class="subsection-title">Seismic Design Parameters</h3>
+                                <h3 class="subsection-title">Seismic</h3>
                                 <div class="structural-data">
                                     <div class="data-row">
-                                        <span class="data-label">Sds (design spectral acceleration):</span>
-                                        <span class="data-value">1.230 g</span>
+                                        <span class="data-label">Mapped parameters</span>
+                                        <span class="data-value">Ss = 1.569 g · S1 = 1.961 g</span>
                                     </div>
                                     <div class="data-row">
-                                        <span class="data-label">Sd1 (design spectral acceleration):</span>
-                                        <span class="data-value">1.428 g</span>
+                                        <span class="data-label">Site coefficients</span>
+                                        <span class="data-value">Fa = 0.784 · Fv = 0.728</span>
                                     </div>
                                     <div class="data-row">
-                                        <span class="data-label">Site class:</span>
+                                        <span class="data-label">Design spectral accelerations (SDS / SD1)</span>
+                                        <span class="data-value">0.82 g · 0.95 g (computed 2/3 · SMS / SM1)</span>
+                                    </div>
+                                    <div class="data-row">
+                                        <span class="data-label">Site class</span>
                                         <span class="data-value">D (Stiff soil)</span>
                                     </div>
                                     <div class="data-row">
-                                        <span class="data-label">Mapped parameters:</span>
-                                        <span class="data-value">Ss = 1.569 g, S1 = 1.961 g</span>
-                                    </div>
-                                    <div class="data-row">
-                                        <span class="data-label">Site coefficients:</span>
-                                        <span class="data-value">Fa = 0.784, Fv = 0.728</span>
-                                    </div>
-                                    <div class="data-row">
-                                        <span class="data-label">Seismic design category:</span>
+                                        <span class="data-label">Seismic design category</span>
                                         <span class="data-value">D</span>
+                                    </div>
+                                    <div class="data-row">
+                                        <span class="data-label">System coefficients</span>
+                                        <span class="data-value">R = 8.0 · Cd = 5.5 · Ω₀ = 2.5</span>
+                                    </div>
+                                    <div class="data-row">
+                                        <span class="data-label">Importance factor (Ie)</span>
+                                        <span class="data-value">1.0</span>
                                     </div>
                                 </div>
 
-                                <h3 class="subsection-title">Wind Design Parameters</h3>
+                                <h3 class="subsection-title">Wind</h3>
                                 <div class="structural-data">
                                     <div class="data-row">
-                                        <span class="data-label">Wind exposure:</span>
+                                        <span class="data-label">Code edition / speed type</span>
+                                        <span class="data-value">ASCE 7-16 · V<sub>ult</sub></span>
+                                    </div>
+                                    <div class="data-row">
+                                        <span class="data-label">Basic wind speed</span>
+                                        <span class="data-value">110 mph (3-second gust)</span>
+                                    </div>
+                                    <div class="data-row">
+                                        <span class="data-label">Exposure category</span>
                                         <span class="data-value">B</span>
                                     </div>
                                     <div class="data-row">
-                                        <span class="data-label">Basic wind speed:</span>
-                                        <span class="data-value">92 MPH (3-second gust)</span>
+                                        <span class="data-label">Directionality (Kd)</span>
+                                        <span class="data-value">0.85</span>
                                     </div>
                                     <div class="data-row">
-                                        <span class="data-label">Importance factor (I):</span>
+                                        <span class="data-label">Topographic factor (Kzt)</span>
                                         <span class="data-value">1.0</span>
                                     </div>
                                     <div class="data-row">
-                                        <span class="data-label">Wind directionality:</span>
-                                        <span class="data-value">Kd = 0.85</span>
+                                        <span class="data-label">Importance factor</span>
+                                        <span class="data-value">1.0</span>
                                     </div>
                                 </div>
 
-                                <h3 class="subsection-title">Live and Roof Loads</h3>
+                                <h3 class="subsection-title">Vertical & Roof Loads</h3>
                                 <div class="structural-data">
                                     <div class="data-row">
-                                        <span class="data-label">Residential live load:</span>
-                                        <span class="data-value">40 PSF</span>
+                                        <span class="data-label">Residential live load</span>
+                                        <span class="data-value">40 psf (dwelling units), 100 psf (corridors)</span>
                                     </div>
                                     <div class="data-row">
-                                        <span class="data-label">Corridor live load:</span>
-                                        <span class="data-value">100 PSF</span>
+                                        <span class="data-label">Retail podium live load</span>
+                                        <span class="data-value">100 psf</span>
                                     </div>
                                     <div class="data-row">
-                                        <span class="data-label">Roof live load:</span>
-                                        <span class="data-value">20 PSF</span>
+                                        <span class="data-label">Roof live / snow load</span>
+                                        <span class="data-value">20 psf live · 0 psf snow (per CBC coastal)</span>
                                     </div>
                                     <div class="data-row">
-                                        <span class="data-label">Roof dead load:</span>
-                                        <span class="data-value">15 PSF (roofing + insulation)</span>
+                                        <span class="data-label">Roof dead load</span>
+                                        <span class="data-value">15 psf (membrane + insulation + pavers)</span>
                                     </div>
                                     <div class="data-row">
-                                        <span class="data-label">Floor dead load:</span>
-                                        <span class="data-value">Concrete slab + finishes: 165 PSF</span>
+                                        <span class="data-label">Floor dead load</span>
+                                        <span class="data-value">PT slab + toppings: 165 psf</span>
                                     </div>
                                     <div class="data-row">
-                                        <span class="data-label">Partition load allowance:</span>
-                                        <span class="data-value">15 PSF</span>
+                                        <span class="data-label">Partition allowance</span>
+                                        <span class="data-value">15 psf</span>
+                                    </div>
+                                    <div class="data-row">
+                                        <span class="data-label">Mechanical pads / heavy zones</span>
+                                        <span class="data-value">500 psf design load at roof mechanical cluster</span>
+                                    </div>
+                                </div>
+                                <div class="section-footer">
+                                    <div class="notes">
+                                        <span class="notes-label">Notes</span>
+                                        <p>Automated SDS/SD1 values locked to site coefficients; edits require unlock. Wind parameters stored with edition metadata for validation.</p>
+                                    </div>
+                                    <div class="sources">
+                                        <span class="notes-label">Sources</span>
+                                        <p>USGS Seismic Design Maps · ASCE 7-16 Fig 26.5-1A · S-100 General Notes</p>
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- Section 4: Foundation System -->
+                            <!-- Section 4: Materials -->
+                            <div class="structural-section" id="materials">
+                                <h2>Materials</h2>
+                                
+                                <div class="structural-data">
+                                    <div class="data-row">
+                                        <span class="data-label">Concrete (columns)</span>
+                                        <span class="data-value">5,000 psi · ASTM C39</span>
+                                    </div>
+                                    <div class="data-row">
+                                        <span class="data-label">Concrete (beams / slabs)</span>
+                                        <span class="data-value">4,000 psi · ASTM C39</span>
+                                    </div>
+                                    <div class="data-row">
+                                        <span class="data-label">Concrete (shear walls)</span>
+                                        <span class="data-value">5,000 psi · ACI 318-14</span>
+                                    </div>
+                                    <div class="data-row">
+                                        <span class="data-label">Prestressing (PT)</span>
+                                        <span class="data-value">Unbonded 0.5" 270 ksi strands · Mono-strand stressing</span>
+                                    </div>
+                                    <div class="data-row">
+                                        <span class="data-label">Reinforcing steel</span>
+                                        <span class="data-value">Grade 60 · ASTM A615 (A706 at plastic hinges)</span>
+                                    </div>
+                                    <div class="data-row">
+                                        <span class="data-label">Structural steel</span>
+                                        <span class="data-value">A992 W-shapes · A500 Grade B HSS</span>
+                                    </div>
+                                    <div class="data-row">
+                                        <span class="data-label">Fireproofing / protection</span>
+                                        <span class="data-value">SFRM Type II on steel · 2" encasement at PT slabs</span>
+                                    </div>
+                                    <div class="data-row">
+                                        <span class="data-label">Material test references</span>
+                                        <span class="data-value">Cylinder breaks 07/2018 (avg 5.3 ksi) · PT stressing reports 08/2018</span>
+                                    </div>
+                                </div>
+                                <div class="section-footer">
+                                    <div class="notes">
+                                        <span class="notes-label">Notes</span>
+                                        <p>Concrete mix uses corrosion inhibitor at podium levels; coordinate with maintenance when core drilling.</p>
+                                    </div>
+                                    <div class="sources">
+                                        <span class="notes-label">Sources</span>
+                                        <p>Material submittals 03300/05120 · PT stressing logs · Special inspection reports</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Section 5: Foundation System -->
                             <div class="structural-section" id="foundation-system">
-                                <h2>Foundation system</h2>
+                                <h2>Foundation System</h2>
                                 <div class="structural-data">
                                     <div class="data-row">
-                                        <span class="data-label">Foundation type:</span>
-                                        <span class="data-value">Mat foundation (shallow)</span>
+                                        <span class="data-label">Foundation type</span>
+                                        <span class="data-value">24 in mat foundation bearing on densified sand</span>
                                     </div>
                                     <div class="data-row">
-                                        <span class="data-label">Foundation depth:</span>
-                                        <span class="data-value">8 feet below grade</span>
+                                        <span class="data-label">Foundation depth</span>
+                                        <span class="data-value">8 ft below grade</span>
                                     </div>
                                     <div class="data-row">
-                                        <span class="data-label">Basement:</span>
-                                        <span class="data-value">No basement</span>
+                                        <span class="data-label">Basement (Y/N + levels)</span>
+                                        <span class="data-value">No</span>
                                     </div>
                                     <div class="data-row">
-                                        <span class="data-label">Retaining walls:</span>
-                                        <span class="data-value">Concrete retaining walls at perimeter (6 ft height)</span>
+                                        <span class="data-label">Retaining walls (type, height, location)</span>
+                                        <span class="data-value">Cast-in-place perimeter walls · 6 ft max height · North and east property lines</span>
                                     </div>
                                     <div class="data-row">
-                                        <span class="data-label">Soil type:</span>
-                                        <span class="data-value">Dense Sand (Site Class D)</span>
+                                        <span class="data-label">Soil profile / Site class (concise)</span>
+                                        <span class="data-value">Dense sand with silty seams · Site Class D</span>
                                     </div>
                                     <div class="data-row">
-                                        <span class="data-label">Allowable bearing capacity:</span>
-                                        <span class="data-value">3,000 PSF</span>
+                                        <span class="data-label">Allowable bearing capacity (units)</span>
+                                        <span class="data-value">3,000 psf (per geotechnical recommendation)</span>
                                     </div>
                                     <div class="data-row">
-                                        <span class="data-label">Mat thickness:</span>
-                                        <span class="data-value">24 inches</span>
+                                        <span class="data-label">Key dimensions</span>
+                                        <span class="data-value">Mat thickness 24 in · Thickened edge beams at ramps</span>
                                     </div>
                                     <div class="data-row">
-                                        <span class="data-label">Concrete strength (f'c):</span>
-                                        <span class="data-value">4,000 PSI</span>
+                                        <span class="data-label">Concrete strength (foundation)</span>
+                                        <span class="data-value">4,000 psi (mat) · 5,000 psi shear keys</span>
                                     </div>
                                     <div class="data-row">
-                                        <span class="data-label">Waterproofing:</span>
-                                        <span class="data-value">Membrane system with drainage board</span>
+                                        <span class="data-label">Waterproofing / drainage</span>
+                                        <span class="data-value">Cold-applied membrane + protection board + sump pumps</span>
                                     </div>
                                     <div class="data-row">
-                                        <span class="data-label">Notes on condition:</span>
-                                        <span class="data-value">No observed settlement or cracking as of last inspection (Sep 2025)</span>
+                                        <span class="data-label">Observed condition</span>
+                                        <span class="data-value">No settlement or cracking (inspection Sep 2025)</span>
                                     </div>
                                 </div>
-                                <div class="source-link">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                                        <path d="M9 5H7C5.89543 5 5 5.89543 5 7V19C5 20.1046 5.89543 21 7 21H17C18.1046 21 19 20.1046 19 19V7C19 5.89543 18.1046 5 17 5H15" stroke="currentColor" stroke-width="2"/>
-                                    </svg>
-                                    Source: S-101 Foundation Plan, Geotechnical Report
+                                <div class="section-footer">
+                                    <div class="notes">
+                                        <span class="notes-label">Notes</span>
+                                        <p>Monitor drainage cleanouts annually; elevator pit waterproofing warranty expires 2027.</p>
+                                    </div>
+                                    <div class="sources">
+                                        <span class="notes-label">Sources</span>
+                                        <p>S-101 Foundation Plan · Geotechnical Report GR-15-077 · Field log 09/2025</p>
+                                    </div>
                                 </div>
                             </div>
 
-                            <!-- Section 5: Gravity System -->
+                            <!-- Section 6: Gravity System -->
                             <div class="structural-section" id="gravity-system">
-                                <h2>Gravity system</h2>
+                                <h2>Gravity System</h2>
                                 
                                 <h3 class="subsection-title">Floor Framing by Level</h3>
                                 <div class="structural-data">
                                     <div class="data-row">
-                                        <span class="data-label">Levels 2-5 (typical floors):</span>
+                                        <span class="data-label">Levels 2-5 (typical stories):</span>
                                         <span class="data-value">8" post-tensioned concrete slabs</span>
                                     </div>
                                     <div class="data-row">
-                                        <span class="data-label">Ground floor slab:</span>
+                                        <span class="data-label">Ground level slab:</span>
                                         <span class="data-value">6" slab-on-grade with vapor barrier</span>
                                     </div>
                                     <div class="data-row">
@@ -603,179 +791,505 @@
                                         <span class="data-value">20' × 24' typical grid</span>
                                     </div>
                                     <div class="data-row">
-                                        <span class="data-label">Beam system:</span>
-                                        <span class="data-value">Reinforced concrete edge beams (18" × 24")</span>
-                                    </div>
-                                    <div class="data-row">
-                                        <span class="data-label">Interior supports:</span>
-                                        <span class="data-value">Drop panels at columns (8" × 8' × 8')</span>
+                                        <span class="data-label">Transfer elements / drop panels:</span>
+                                        <span class="data-value">Edge beams (18" × 24") and 8' × 8' drop panels at column heads</span>
                                     </div>
                                 </div>
 
-                                <h3 class="subsection-title">Load Maps and Heavy Zones</h3>
+                                <h3 class="subsection-title">Gravity load maps & heavy zones</h3>
                                 <div class="structural-data">
                                     <div class="data-row">
-                                        <span class="data-label">Mechanical equipment locations:</span>
+                                        <span class="data-label">Mechanical/equipment pads</span>
                                         <span class="data-value">Roof level at north end, designed for 500 PSF</span>
                                     </div>
                                     <div class="data-row">
-                                        <span class="data-label">Heavy zones:</span>
+                                        <span class="data-label">Heavy-use zones</span>
                                         <span class="data-value">Elevator machine room, emergency generator room (roof)</span>
                                     </div>
                                     <div class="data-row">
-                                        <span class="data-label">Parking level:</span>
-                                        <span class="data-value">Ground floor at grade, 50 PSF live load</span>
+                                        <span class="data-label">Parking live load</span>
+                                        <span class="data-value">Ground level at grade, 50 PSF live load</span>
                                     </div>
                                 </div>
-                                <div class="source-link">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                                        <path d="M9 5H7C5.89543 5 5 5.89543 5 7V19C5 20.1046 5.89543 21 7 21H17C18.1046 21 19 20.1046 19 19V7C19 5.89543 18.1046 5 17 5H15" stroke="currentColor" stroke-width="2"/>
-                                    </svg>
-                                    Source: S-201-S-205 Floor Framing Plans
+                                <div class="section-footer">
+                                    <div class="notes">
+                                        <span class="notes-label">Notes</span>
+                                        <p>Retail transfer beams coordinate with MEP risers; maintain access to PT stressing pockets noted at grid intersections.</p>
+                                    </div>
+                                    <div class="sources">
+                                        <span class="notes-label">Sources</span>
+                                        <p>S-201 through S-205 Floor Framing Plans · PT shop drawings (Vector PT)</p>
+                                    </div>
                                 </div>
                             </div>
 
-                            <!-- Section 6: Lateral System -->
+                            <!-- Section 7: Lateral System -->
                             <div class="structural-section" id="lateral-system">
-                                <h2>Lateral system</h2>
+                                <h2>Lateral System</h2>
                                 
-                                <h3 class="subsection-title">Lateral Force-Resisting System</h3>
+                                <h3 class="subsection-title">Lateral Force-Resisting System (LFRS)</h3>
                                 <div class="structural-data">
                                     <div class="data-row">
-                                        <span class="data-label">Primary system:</span>
+                                        <span class="data-label">Primary system</span>
                                         <span class="data-value">Special reinforced concrete shear walls</span>
                                     </div>
                                     <div class="data-row">
-                                        <span class="data-label">Secondary system:</span>
-                                        <span class="data-value">Ordinary reinforced concrete moment frames</span>
+                                        <span class="data-label">Secondary/Frame system</span>
+                                        <span class="data-value">Special RC moment frames (perimeter SMRF)</span>
                                     </div>
                                     <div class="data-row">
-                                        <span class="data-label">System type classification:</span>
-                                        <span class="data-value">Dual system - shear walls with moment frames</span>
-                                    </div>
-                                    <div class="data-row">
-                                        <span class="data-label">Response modification factor (R):</span>
-                                        <span class="data-value">8 (for special RC shear walls)</span>
-                                    </div>
-                                    <div class="data-row">
-                                        <span class="data-label">Deflection amplification (Cd):</span>
-                                        <span class="data-value">5.5</span>
-                                    </div>
-                                    <div class="data-row">
-                                        <span class="data-label">Overstrength factor (Ω0):</span>
-                                        <span class="data-value">2.5</span>
+                                        <span class="data-label">System classification</span>
+                                        <span class="data-value">Dual system — shear walls with moment frames</span>
                                     </div>
                                 </div>
 
-                                <h3 class="subsection-title">Layout Summary and Bays</h3>
+                                <h3 class="subsection-title">Coefficients</h3>
                                 <div class="structural-data">
                                     <div class="data-row">
-                                        <span class="data-label">Shear wall locations - North/South:</span>
+                                        <span class="data-label">R, Cd, Ω₀</span>
+                                        <span class="data-value">8.0, 5.5, 2.5 (auto-constrained by system + code)</span>
+                                    </div>
+                                </div>
+
+                                <h3 class="subsection-title">Layout Summary</h3>
+                                <div class="structural-data">
+                                    <div class="data-row">
+                                        <span class="data-label">Shear wall/frame locations (N/S)</span>
                                         <span class="data-value">Two walls at building perimeter on grid lines A and G</span>
                                     </div>
                                     <div class="data-row">
-                                        <span class="data-label">Shear wall locations - East/West:</span>
+                                        <span class="data-label">Shear wall/frame locations (E/W)</span>
                                         <span class="data-value">Core walls around elevator and stair shafts</span>
                                     </div>
                                     <div class="data-row">
-                                        <span class="data-label">Shear wall thickness:</span>
-                                        <span class="data-value">12 inches typical</span>
+                                        <span class="data-label">Wall thicknesses / frame bays</span>
+                                        <span class="data-value">12" walls · 20' × 24' bays (5 bays N-S, 6 bays E-W)</span>
                                     </div>
                                     <div class="data-row">
-                                        <span class="data-label">Typical bay dimensions:</span>
-                                        <span class="data-value">20' × 24' (5 bays N-S, 6 bays E-W)</span>
+                                        <span class="data-label">Diaphragm type & collectors</span>
+                                        <span class="data-value">Rigid cast-in-place concrete · Perimeter beams act as collectors</span>
                                     </div>
                                     <div class="data-row">
-                                        <span class="data-label">Moment frame locations:</span>
-                                        <span class="data-value">Perimeter frames on all four sides</span>
-                                    </div>
-                                    <div class="data-row">
-                                        <span class="data-label">Building footprint:</span>
-                                        <span class="data-value">100' × 144' (approximately 14,400 sq ft per floor)</span>
+                                        <span class="data-label">Footprint (approximate)</span>
+                                        <span class="data-value">100' × 144' (~14,400 sq ft per story)</span>
                                     </div>
                                 </div>
 
-                                <h3 class="subsection-title">Irregularities</h3>
+                                <h3 class="subsection-title">Structural Irregularities (ASCE 7 §12.3)</h3>
                                 <div class="structural-data">
                                     <div class="data-row">
-                                        <span class="data-label">Horizontal irregularities:</span>
-                                        <span class="data-value">None - regular rectangular plan</span>
+                                        <span class="data-label">Torsional irregularity</span>
+                                        <span class="data-value">No - symmetric shear wall distribution</span>
                                     </div>
                                     <div class="data-row">
-                                        <span class="data-label">Vertical irregularities:</span>
-                                        <span class="data-value">None - consistent story heights and wall layouts</span>
+                                        <span class="data-label">Re-entrant corners</span>
+                                        <span class="data-value">No</span>
                                     </div>
                                     <div class="data-row">
-                                        <span class="data-label">Torsional irregularity:</span>
-                                        <span class="data-value">None - symmetric shear wall distribution</span>
+                                        <span class="data-label">Diaphragm discontinuity</span>
+                                        <span class="data-value">No</span>
                                     </div>
                                     <div class="data-row">
-                                        <span class="data-label">Re-entrant corners:</span>
-                                        <span class="data-value">None</span>
+                                        <span class="data-label">Out-of-plane offsets</span>
+                                        <span class="data-value">No</span>
+                                    </div>
+                                    <div class="data-row">
+                                        <span class="data-label">In-plane discontinuity</span>
+                                        <span class="data-value">No</span>
+                                    </div>
+                                    <div class="data-row">
+                                        <span class="data-label">Soft story</span>
+                                        <span class="data-value">No</span>
+                                    </div>
+                                    <div class="data-row">
+                                        <span class="data-label">Weak story</span>
+                                        <span class="data-value">No</span>
+                                    </div>
+                                    <div class="data-row">
+                                        <span class="data-label">Vertical geometric irregularity</span>
+                                        <span class="data-value">No</span>
+                                    </div>
+                                    <div class="data-row">
+                                        <span class="data-label">Nonparallel systems</span>
+                                        <span class="data-value">No - orthogonal grid</span>
                                     </div>
                                 </div>
-                                <div class="source-link">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                                        <path d="M9 5H7C5.89543 5 5 5.89543 5 7V19C5 20.1046 5.89543 21 7 21H17C18.1046 21 19 20.1046 19 19V7C19 5.89543 18.1046 5 17 5H15" stroke="currentColor" stroke-width="2"/>
-                                    </svg>
-                                    Source: S-100 Structural General Notes, S-301 Lateral System Plan
+                                <div class="section-footer">
+                                    <div class="notes">
+                                        <span class="notes-label">Notes</span>
+                                        <p>Dual system pairing validated against ASCE 7 Table 12.2-1; moment frames detailed as SMRF to satisfy dual criteria.</p>
+                                    </div>
+                                    <div class="sources">
+                                        <span class="notes-label">Sources</span>
+                                        <p>S-100 Structural General Notes · S-301 Lateral System Plan · Design calc set DC-04</p>
+                                    </div>
                                 </div>
                             </div>
 
-                            <!-- Section 7: Materials and Health History -->
-                            <div class="structural-section" id="materials-health">
-                                <h2>Materials and health history</h2>
-                                
-                                <h3 class="subsection-title">Material Specifications</h3>
+                            <!-- Section 8: Condition & Inspections -->
+                            <div class="structural-section" id="condition-inspections">
+                                <h2>Condition & Inspections</h2>
                                 <div class="structural-data">
                                     <div class="data-row">
-                                        <span class="data-label">Concrete (columns):</span>
-                                        <span class="data-value">5,000 PSI - ASTM C39</span>
-                                    </div>
-                                    <div class="data-row">
-                                        <span class="data-label">Concrete (beams/slabs):</span>
-                                        <span class="data-value">4,000 PSI - ASTM C39</span>
-                                    </div>
-                                    <div class="data-row">
-                                        <span class="data-label">Concrete (shear walls):</span>
-                                        <span class="data-value">5,000 PSI - ACI 318-14</span>
-                                    </div>
-                                    <div class="data-row">
-                                        <span class="data-label">Reinforcing steel:</span>
-                                        <span class="data-value">Grade 60 - ASTM A615 (60 ksi yield)</span>
-                                    </div>
-                                    <div class="data-row">
-                                        <span class="data-label">Structural steel:</span>
-                                        <span class="data-value">A992 (50 ksi yield)</span>
-                                    </div>
-                                </div>
-
-                                <h3 class="subsection-title">Inspection History</h3>
-                                <div class="structural-data">
-                                    <div class="data-row">
-                                        <span class="data-label">Last structural inspection:</span>
+                                        <span class="data-label">Last structural inspection</span>
                                         <span class="data-value">September 15, 2025</span>
                                     </div>
-                                    <div class="data-row">
-                                        <span class="data-label">Inspection findings:</span>
-                                        <span class="data-value">No structural deficiencies noted</span>
+                                    <div class="data-row full-width">
+                                        <span class="data-label">Findings summary</span>
+                                        <ul class="findings-list">
+                                            <li>PT anchorage covers sealed; no evidence of water intrusion</li>
+                                            <li>Minor sealant cracks at podium soffit; monitor during next cycle</li>
+                                            <li>All structural elements performing as designed</li>
+                                            <li>No signs of settlement or differential movement</li>
+                                        </ul>
                                     </div>
                                     <div class="data-row">
-                                        <span class="data-label">Structural health score:</span>
-                                        <span class="data-value"><span class="badge success">92%</span></span>
+                                        <span class="data-label">Repairs/retrofits since last inspection</span>
+                                        <span class="data-value">Preventive joint reseal scheduled Q4 2025</span>
                                     </div>
                                     <div class="data-row">
-                                        <span class="data-label">Next inspection due:</span>
-                                        <span class="data-value">September 2026</span>
+                                        <span class="data-label">Next inspection due</span>
+                                        <span class="data-value">September 2026 (computed, editable)</span>
+                                    </div>
+                                    <div class="data-row full-width">
+                                        <span class="data-label">Executive summary & red flags</span>
+                                        <div class="executive-summary">
+                                            <span class="badge success">No Red Flags</span>
+                                            <p>All structural systems are performing as designed. No critical deficiencies identified. Routine maintenance items only.</p>
+                                        </div>
+                                    </div>
+                                    <div class="data-row">
+                                        <span class="data-label">Structural Health Score</span>
+                                        <span class="data-value"><span class="badge success">92%</span> (visible here and in summary strip)</span>
+                                    </div>
+                                    <div class="data-row full-width">
+                                        <span class="data-label">Photos & attachments</span>
+                                        <div class="inline-gallery">
+                                            <div class="gallery-preview">
+                                                <div class="gallery-item">📷 Photo 1</div>
+                                                <div class="gallery-item">📷 Photo 2</div>
+                                                <div class="gallery-item">📷 Photo 3</div>
+                                                <div class="gallery-item">📷 Photo 4</div>
+                                                <div class="gallery-item">📷 Photo 5</div>
+                                                <div class="gallery-item">📷 Photo 6</div>
+                                            </div>
+                                            <p class="gallery-meta">2025 inspection gallery (6 photos) · checklist upload</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="section-footer">
+                                    <div class="notes">
+                                        <span class="notes-label">Notes</span>
+                                        <p>Red-flag triggers: overdue AHJ inspection, critical deficiencies, irregularities without mitigation, or pending post-event assessment.</p>
+                                    </div>
+                                    <div class="sources">
+                                        <span class="notes-label">Sources</span>
+                                        <p>Inspection log 09/15/2025 · Photo set INS-2025-09 · Maintenance ticket MT-432</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+        </div>
 
-                <!-- Keep old expandable sections structure below for reference but hide it -->
-                <div style="display: none;">
+        <!-- Architectural Section -->
+        <div class="content-section" id="section-architectural">
+            <header class="module-panel-header">
+                <div class="module-title-group">
+                    <p class="module-eyebrow">Core systems</p>
+                    <div class="module-title-with-status">
+                        <h2>Architectural</h2>
+                        <div class="module-status-chip chip-success">
+                            <span class="status-dot"></span>
+                            <span>Clear</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div class="placeholder-content">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none">
+                    <path d="M3 21H21M3 7L12 3L21 7M4 7V21M20 7V21M8 12H16M8 16H16" stroke="#9ca3af" stroke-width="2"/>
+                </svg>
+                <p>Architectural information will be displayed here</p>
+            </div>
+        </div>
+
+        <!-- Mechanical Section -->
+        <div class="content-section" id="section-mechanical">
+            <header class="module-panel-header">
+                <div class="module-title-group">
+                    <p class="module-eyebrow">Core systems</p>
+                    <div class="module-title-with-status">
+                        <h2>Mechanical (HVAC)</h2>
+                        <div class="module-status-chip chip-warning">
+                            <span class="status-dot"></span>
+                            <span>Due Soon</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div class="placeholder-content">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="12" r="10" stroke="#9ca3af" stroke-width="2"/>
+                </svg>
+                <p>Mechanical systems information will be displayed here</p>
+            </div>
+        </div>
+
+        <!-- Electrical Section -->
+        <div class="content-section" id="section-electrical">
+            <header class="module-panel-header">
+                <div class="module-title-group">
+                    <p class="module-eyebrow">Core systems</p>
+                    <div class="module-title-with-status">
+                        <h2>Electrical</h2>
+                        <div class="module-status-chip chip-danger">
+                            <span class="status-dot"></span>
+                            <span>Overdue</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div class="placeholder-content">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none">
+                    <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" stroke="#9ca3af" stroke-width="2"/>
+                </svg>
+                <p>Electrical systems information will be displayed here</p>
+            </div>
+        </div>
+
+        <!-- Plumbing Section -->
+        <div class="content-section" id="section-plumbing">
+            <header class="module-panel-header">
+                <div class="module-title-group">
+                    <p class="module-eyebrow">Core systems</p>
+                    <div class="module-title-with-status">
+                        <h2>Plumbing</h2>
+                        <div class="module-status-chip chip-success">
+                            <span class="status-dot"></span>
+                            <span>Clear</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div class="placeholder-content">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none">
+                    <path d="M4 14H20M4 18H20M4 10H20M4 6H20" stroke="#9ca3af" stroke-width="2"/>
+                </svg>
+                <p>Plumbing systems information will be displayed here</p>
+            </div>
+        </div>
+
+        <!-- Fire Protection Section -->
+        <div class="content-section" id="section-fire">
+            <header class="module-panel-header">
+                <div class="module-title-group">
+                    <p class="module-eyebrow">Core systems</p>
+                    <div class="module-title-with-status">
+                        <h2>Fire Protection</h2>
+                        <div class="module-status-chip chip-success">
+                            <span class="status-dot"></span>
+                            <span>Clear</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div class="placeholder-content">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 2C12 2 5 8 5 13C5 15.6522 6.05357 18.1957 7.92893 20.0711C9.8043 21.9464 12.3478 23 15 23" stroke="#9ca3af" stroke-width="2"/>
+                </svg>
+                <p>Fire protection systems information will be displayed here</p>
+            </div>
+        </div>
+
+        <!-- Accessibility Section -->
+        <div class="content-section" id="section-accessibility">
+            <header class="module-panel-header">
+                <div class="module-title-group">
+                    <p class="module-eyebrow">Core systems</p>
+                    <div class="module-title-with-status">
+                        <h2>Accessibility & Egress</h2>
+                        <div class="module-status-chip chip-success">
+                            <span class="status-dot"></span>
+                            <span>Clear</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div class="placeholder-content">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="6" r="2" stroke="#9ca3af" stroke-width="2"/>
+                    <path d="M12 10C10.3431 10 9 11.3431 9 13V15" stroke="#9ca3af" stroke-width="2"/>
+                </svg>
+                <p>Accessibility and egress information will be displayed here</p>
+            </div>
+        </div>
+
+        <!-- Roof Systems Section -->
+        <div class="content-section" id="section-roof">
+            <header class="module-panel-header">
+                <div class="module-title-group">
+                    <p class="module-eyebrow">Core systems</p>
+                    <div class="module-title-with-status">
+                        <h2>Roof Systems</h2>
+                        <div class="module-status-chip chip-success">
+                            <span class="status-dot"></span>
+                            <span>Clear</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div class="placeholder-content">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none">
+                    <path d="M3 12L12 3L21 12M5 10V20" stroke="#9ca3af" stroke-width="2"/>
+                </svg>
+                <p>Roof systems information will be displayed here</p>
+            </div>
+        </div>
+
+        <!-- Environmental Section -->
+        <div class="content-section" id="section-environmental">
+            <header class="module-panel-header">
+                <div class="module-title-group">
+                    <p class="module-eyebrow">Risk & Operations</p>
+                    <div class="module-title-with-status">
+                        <h2>Environmental</h2>
+                        <div class="module-status-chip chip-success">
+                            <span class="status-dot"></span>
+                            <span>Clear</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div class="placeholder-content">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="12" r="10" stroke="#9ca3af" stroke-width="2"/>
+                </svg>
+                <p>Environmental information will be displayed here</p>
+            </div>
+        </div>
+
+        <!-- Cybersecurity Section -->
+        <div class="content-section" id="section-cybersecurity">
+            <header class="module-panel-header">
+                <div class="module-title-group">
+                    <p class="module-eyebrow">Risk & Operations</p>
+                    <div class="module-title-with-status">
+                        <h2>Cybersecurity & Smart Systems</h2>
+                        <div class="module-status-chip chip-success">
+                            <span class="status-dot"></span>
+                            <span>Clear</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div class="placeholder-content">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="12" r="3" stroke="#9ca3af" stroke-width="2"/>
+                    <path d="M12 2V6M12 18V22M22 12H18M6 12H2" stroke="#9ca3af" stroke-width="2"/>
+                </svg>
+                <p>Cybersecurity and smart systems information will be displayed here</p>
+            </div>
+        </div>
+
+        <!-- Resilience Section -->
+        <div class="content-section" id="section-resilience">
+            <header class="module-panel-header">
+                <div class="module-title-group">
+                    <p class="module-eyebrow">Risk & Operations</p>
+                    <div class="module-title-with-status">
+                        <h2>Resilience & Risk Insights</h2>
+                        <div class="module-status-chip chip-success">
+                            <span class="status-dot"></span>
+                            <span>Clear</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div class="placeholder-content">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 2L2 7V12C2 17 6 21.5 12 22C18 21.5 22 17 22 12V7L12 2Z" stroke="#9ca3af" stroke-width="2"/>
+                </svg>
+                <p>Resilience and risk information will be displayed here</p>
+            </div>
+        </div>
+
+        <!-- Maintenance Section -->
+        <div class="content-section" id="section-maintenance">
+            <header class="module-panel-header">
+                <div class="module-title-group">
+                    <p class="module-eyebrow">Risk & Operations</p>
+                    <div class="module-title-with-status">
+                        <h2>Maintenance & Capital Planning</h2>
+                        <div class="module-status-chip chip-success">
+                            <span class="status-dot"></span>
+                            <span>Clear</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div class="placeholder-content">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 8V12L15 15M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#9ca3af" stroke-width="2"/>
+                </svg>
+                <p>Maintenance and capital planning information will be displayed here</p>
+            </div>
+        </div>
+
+        <!-- Zoning Section -->
+        <div class="content-section" id="section-zoning">
+            <header class="module-panel-header">
+                <div class="module-title-group">
+                    <p class="module-eyebrow">Property Context</p>
+                    <div class="module-title-with-status">
+                        <h2>Zoning & Entitlements</h2>
+                        <div class="module-status-chip chip-success">
+                            <span class="status-dot"></span>
+                            <span>Clear</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div class="placeholder-content">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none">
+                    <path d="M9 5H7C5.89543 5 5 5.89543 5 7V19C5 20.1046 5.89543 21 7 21H17C18.1046 21 19 20.1046 19 19V7C19 5.89543 18.1046 5 17 5H15" stroke="#9ca3af" stroke-width="2"/>
+                </svg>
+                <p>Zoning and entitlements information will be displayed here</p>
+            </div>
+        </div>
+
+        <!-- Ownership Section -->
+        <div class="content-section" id="section-ownership">
+            <header class="module-panel-header">
+                <div class="module-title-group">
+                    <p class="module-eyebrow">Property Context</p>
+                    <div class="module-title-with-status">
+                        <h2>Ownership & Leasing</h2>
+                        <div class="module-status-chip chip-success">
+                            <span class="status-dot"></span>
+                            <span>Clear</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div class="placeholder-content">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none">
+                    <path d="M3 12L5 10M5 10L12 3L19 10M5 10V20C5 20.5523 5.44772 21 6 21H9M19 10L21 12M19 10V20" stroke="#9ca3af" stroke-width="2"/>
+                </svg>
+                <p>Ownership and leasing information will be displayed here</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Mobile Sidebar Toggle -->
+    <button class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Toggle navigation">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M3 12H21M3 6H21M3 18H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+    </button>
+
+    <!-- Remove all old content below -->
+    <div style="display:none">
                     <div class="expandable-sections">
                         <!-- Section 1: Foundation -->
                         <div class="expandable-section">
@@ -1098,95 +1612,9 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Other Tab Contents (Placeholder) -->
-                <div class="tab-content" data-content="architectural">
-                    <div class="tab-header">
-                        <h2>Architectural</h2>
-                        <p>Building design, finishes, and architectural systems</p>
-                    </div>
-                    <div class="placeholder-content">
-                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none">
-                            <path d="M3 21H21M3 7L12 3L21 7M4 7V21M20 7V21M8 12H16M8 16H16" stroke="#9ca3af" stroke-width="2"/>
-                        </svg>
-                        <p>Architectural information will be displayed here</p>
-                    </div>
-                </div>
-
-                <div class="tab-content" data-content="mechanical">
-                    <div class="placeholder-content">
-                        <p>Mechanical systems information</p>
-                    </div>
-                </div>
-
-                <div class="tab-content" data-content="electrical">
-                    <div class="placeholder-content">
-                        <p>Electrical systems information</p>
-                    </div>
-                </div>
-
-                <div class="tab-content" data-content="plumbing">
-                    <div class="placeholder-content">
-                        <p>Plumbing systems information</p>
-                    </div>
-                </div>
-
-                <div class="tab-content" data-content="fire">
-                    <div class="placeholder-content">
-                        <p>Fire protection systems information</p>
-                    </div>
-                </div>
-
-                <div class="tab-content" data-content="accessibility">
-                    <div class="placeholder-content">
-                        <p>Accessibility and egress information</p>
-                    </div>
-                </div>
-
-                <div class="tab-content" data-content="roof">
-                    <div class="placeholder-content">
-                        <p>Roof systems information</p>
-                    </div>
-                </div>
-
-                <div class="tab-content" data-content="environmental">
-                    <div class="placeholder-content">
-                        <p>Environmental and format information</p>
-                    </div>
-                </div>
-
-                <div class="tab-content" data-content="cybersecurity">
-                    <div class="placeholder-content">
-                        <p>Cybersecurity and smart systems information</p>
-                    </div>
-                </div>
-
-                <div class="tab-content" data-content="resilience">
-                    <div class="placeholder-content">
-                        <p>Resilience and risk insights</p>
-                    </div>
-                </div>
-
-                <div class="tab-content" data-content="maintenance">
-                    <div class="placeholder-content">
-                        <p>Maintenance and capital planning information</p>
-                    </div>
-                </div>
-
-                <div class="tab-content" data-content="zoning">
-                    <div class="placeholder-content">
-                        <p>Zoning and entitlements information</p>
-                    </div>
-                </div>
-
-                <div class="tab-content" data-content="ownership">
-                    <div class="placeholder-content">
-                        <p>Ownership and leasing information (optional)</p>
-                    </div>
-                </div>
             </div>
         </div>
-    </main>
+    </div>
 
     <script src="app.js"></script>
 </body>
